@@ -1,6 +1,7 @@
 "use client"
 
-import { Bell } from "lucide-react"
+import Link from "next/link"
+import { Bell, LogIn } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { CommandSearch } from "@/components/dashboard/command-search"
 
@@ -23,6 +24,13 @@ export function DashboardHeader() {
             AD
           </AvatarFallback>
         </Avatar>
+        <Link
+          href="/login"
+          className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
+        >
+          <LogIn className="h-3.5 w-3.5" />
+          Sign in
+        </Link>
       </div>
     </header>
   )

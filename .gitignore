@@ -25,3 +25,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local data store (contains user credentials — never commit)
+/data/users.json
+/data/sessions.json
+/data/products.json

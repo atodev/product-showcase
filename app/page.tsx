@@ -5,141 +5,113 @@ import { ActivityFeed } from "@/components/dashboard/activity-feed"
 import { StatusBadges } from "@/components/dashboard/status-badges"
 import { ProductTabs } from "@/components/dashboard/product-tabs"
 import { MetricCard } from "@/components/dashboard/metric-card"
+import { PRODUCTS } from "@/lib/product-data"
 
 export default function Home() {
+  const ie = PRODUCTS["interview-edge"]
+  const ona = PRODUCTS["ona-dashboard"]
+
   return (
     <div className="flex h-screen overflow-hidden bg-background font-sans">
       <SidebarNav />
 
       <main className="flex flex-1 flex-col overflow-y-auto">
-        {/* Top bar */}
         <DashboardHeader />
 
-        {/* Content */}
-        <div className="flex-1 p-6">
-          {/* Metric Cards Row */}
-          <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <MetricCard
-              title="Total Revenue"
-              value="$84,254"
-              change="+12.5%"
-              changeType="positive"
-              iconName="DollarSign"
-            />
-            <MetricCard
-              title="Active Users"
-              value="48,294"
-              change="+8.2%"
-              changeType="positive"
-              iconName="Users"
-            />
-            <MetricCard
-              title="Conversions"
-              value="2,847"
-              change="-3.1%"
-              changeType="negative"
-              iconName="ShoppingCart"
-            />
-            <MetricCard
-              title="Growth Rate"
-              value="24.8%"
-              change="+4.3%"
-              changeType="positive"
-              iconName="TrendingUp"
-            />
+        <div className="flex-1 space-y-6 p-6">
+
+          {/* Interview Edge metrics */}
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-blue-400" />
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Interview Edge
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <MetricCard title="MRR" value={ie.metrics.mrr} change={ie.metrics.mrrChange} changeType="positive" iconName="DollarSign" />
+              <MetricCard title="Annual Run Rate" value={ie.metrics.arr} change={ie.metrics.arrChange} changeType="positive" iconName="TrendingUp" />
+              <MetricCard title="Customers" value={ie.metrics.customers} change={ie.metrics.customersChange} changeType="positive" iconName="Users" />
+              <MetricCard title="Net Revenue Retention" value={ie.metrics.nrr} change={ie.metrics.nrrChange} changeType="positive" iconName="BarChart3" />
+            </div>
+          </div>
+
+          {/* ONA Dashboard metrics */}
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-violet-400" />
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                ONA Dashboard
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <MetricCard title="MRR" value={ona.metrics.mrr} change={ona.metrics.mrrChange} changeType="positive" iconName="DollarSign" />
+              <MetricCard title="Annual Run Rate" value={ona.metrics.arr} change={ona.metrics.arrChange} changeType="positive" iconName="TrendingUp" />
+              <MetricCard title="Customers" value={ona.metrics.customers} change={ona.metrics.customersChange} changeType="positive" iconName="Users" />
+              <MetricCard title="Net Revenue Retention" value={ona.metrics.nrr} change={ona.metrics.nrrChange} changeType="positive" iconName="BarChart3" />
+            </div>
           </div>
 
           {/* Bento Grid */}
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-            {/* Large featured card - Chart */}
-            <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-7">
+
+            {/* IE Growth Chart */}
+            <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-6">
               <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <h2 className="text-base font-semibold text-foreground">
-                    Product Growth
-                  </h2>
-                  <p className="text-xs text-muted-foreground">
-                    Monthly user acquisition over the past year
-                  </p>
+                  <div className="mb-1 flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-blue-400" />
+                    <h2 className="text-base font-semibold text-foreground">Interview Edge — Growth</h2>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Monthly user acquisition over the past year</p>
                 </div>
-                <span className="rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
-                  +57.4%
-                </span>
+                <span className="rounded-md bg-blue-400/10 px-2.5 py-1 text-xs font-medium text-blue-400">+21.4%</span>
               </div>
-              <GrowthChart />
+              <GrowthChart data={ie.chartData} color={ie.gradientColor} gradientId="ie-home-gradient" height={220} />
+            </div>
+
+            {/* ONA Growth Chart */}
+            <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-6">
+              <div className="mb-4 flex items-center justify-between">
+                <div>
+                  <div className="mb-1 flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-violet-400" />
+                    <h2 className="text-base font-semibold text-foreground">ONA Dashboard — Growth</h2>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Monthly user acquisition over the past year</p>
+                </div>
+                <span className="rounded-md bg-violet-400/10 px-2.5 py-1 text-xs font-medium text-violet-400">+13.2%</span>
+              </div>
+              <GrowthChart data={ona.chartData} color={ona.gradientColor} gradientId="ona-home-gradient" height={220} />
             </div>
 
             {/* Activity Feed */}
             <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-5">
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-base font-semibold text-foreground">
-                  Recent Activity
-                </h2>
-                <button className="text-xs text-primary hover:underline">
-                  View all
-                </button>
+                <h2 className="text-base font-semibold text-foreground">Recent Activity</h2>
+                <button className="text-xs text-primary hover:underline">View all</button>
               </div>
               <ActivityFeed />
             </div>
 
-            {/* Status Badges */}
+            {/* System Status */}
             <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-4">
               <div className="mb-4">
-                <h2 className="text-base font-semibold text-foreground">
-                  System Status
-                </h2>
-                <p className="text-xs text-muted-foreground">
-                  Service availability
-                </p>
+                <h2 className="text-base font-semibold text-foreground">System Status</h2>
+                <p className="text-xs text-muted-foreground">Service availability</p>
               </div>
               <StatusBadges />
             </div>
 
             {/* Product Tabs */}
-            <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-4">
+            <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-3">
               <div className="mb-4">
-                <h2 className="text-base font-semibold text-foreground">
-                  Product View
-                </h2>
-                <p className="text-xs text-muted-foreground">
-                  Switch between data perspectives
-                </p>
+                <h2 className="text-base font-semibold text-foreground">Product View</h2>
+                <p className="text-xs text-muted-foreground">Switch between data perspectives</p>
               </div>
               <ProductTabs />
             </div>
 
-            {/* Quick Stats Card */}
-            <div className="group overflow-hidden rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)] lg:col-span-4">
-              <div className="mb-4">
-                <h2 className="text-base font-semibold text-foreground">
-                  Performance
-                </h2>
-                <p className="text-xs text-muted-foreground">
-                  Core metrics snapshot
-                </p>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Requests / sec</span>
-                  <span className="text-lg font-bold text-foreground">14.2k</span>
-                </div>
-                <div className="h-px bg-border" />
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Error Rate</span>
-                  <span className="text-lg font-bold text-emerald-400">0.02%</span>
-                </div>
-                <div className="h-px bg-border" />
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Avg Response</span>
-                  <span className="text-lg font-bold text-foreground">38ms</span>
-                </div>
-                <div className="h-px bg-border" />
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Cache Hit</span>
-                  <span className="text-lg font-bold text-primary">94.7%</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </main>

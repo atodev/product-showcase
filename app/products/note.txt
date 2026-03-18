@@ -1,0 +1,10 @@
+-- to run
+npm install 
+npm run dev
+
+The owner account is pre-seeded in data/users.json:
+
+Key: OWNER-BOOTSTRAP-2025
+Name/email: Tom Butler / tom@atodev.com
+
+the customer does not login - customers do not see header tabs for investors and owners. investors login with a key - on first time access they are already met with their name and email and are invited to create a password . they see two tabs. owners same auth as investor but they see 3 tabs the keys are pre assigned by another external python app. the owner / developer has an invitation window where he pre loads the investor name and email and the pre-made access key     

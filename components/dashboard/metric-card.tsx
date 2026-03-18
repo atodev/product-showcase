@@ -5,6 +5,7 @@ import {
   DollarSign,
   Users,
   ShoppingCart,
+  BarChart3,
   type LucideIcon,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -14,6 +15,7 @@ const iconMap: Record<string, LucideIcon> = {
   Users,
   ShoppingCart,
   TrendingUp,
+  BarChart3,
 }
 
 interface MetricCardProps {

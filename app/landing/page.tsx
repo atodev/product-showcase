@@ -96,7 +96,7 @@ export default function LandingPage() {
 
         {/* Hero */}
         <div
-          className="animate-fade-up mb-16 flex flex-col items-center text-center"
+          className="animate-reveal mb-16 flex flex-col items-center text-center"
           style={{ animationDelay: "0ms" }}
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
@@ -127,7 +127,7 @@ export default function LandingPage() {
             return (
               <div
                 key={c.label}
-                className="animate-fade-up rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
+                className="animate-reveal rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
                 style={{ animationDelay: `${150 + i * 80}ms` }}
               >
                 <div className="mb-3 flex items-center gap-2">
@@ -158,7 +158,7 @@ export default function LandingPage() {
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="animate-fade-up group rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
+                className="animate-reveal group rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
                 style={{ animationDelay: `${400 + i * 80}ms` }}
               >
                 <div className="mb-3 flex items-center justify-between">
@@ -182,7 +182,7 @@ export default function LandingPage() {
 
         {/* Tech stack */}
         <div
-          className="animate-fade-up mt-14 flex flex-col items-center gap-4"
+          className="animate-reveal mt-14 flex flex-col items-center gap-4"
           style={{ animationDelay: "700ms" }}
         >
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">

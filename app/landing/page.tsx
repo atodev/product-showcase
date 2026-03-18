@@ -1,12 +1,8 @@
-import type { Metadata } from "next"
+"use client"
+
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Zap, Cpu, Cloud, Server, ArrowUpRight, Github } from "lucide-react"
-
-export const metadata: Metadata = {
-  title: "Atodev — AI-powered software for business",
-  description:
-    "Micro-SaaS and AI development studio building focused software solutions for business. Local and cloud AI integrations.",
-}
 
 const products = [
   {
@@ -53,11 +49,24 @@ const capabilities = [
   },
 ]
 
-const stack = [
-  "Next.js", "TypeScript", "Python", "Tailwind CSS", "Ollama", "OpenAI", "Vercel",
-]
+const stack = ["Next.js", "TypeScript", "Python", "Tailwind CSS", "Ollama", "OpenAI", "Vercel"]
 
 export default function LandingPage() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    // Small delay so the transition is visible after first paint
+    const t = setTimeout(() => setVisible(true), 50)
+    return () => clearTimeout(t)
+  }, [])
+
+  const reveal = (delayMs: number) =>
+    ({
+      transition: `opacity 0.6s ease ${delayMs}ms, transform 0.6s ease ${delayMs}ms`,
+      opacity: visible ? 1 : 0,
+      transform: visible ? "translateY(0)" : "translateY(20px)",
+    } as React.CSSProperties)
+
   return (
     <div className="relative flex min-h-screen flex-col bg-background font-sans">
 
@@ -95,10 +104,7 @@ export default function LandingPage() {
       <main className="relative flex flex-1 flex-col items-center px-6 py-20">
 
         {/* Hero */}
-        <div
-          className="animate-reveal mb-16 flex flex-col items-center text-center"
-          style={{ animationDelay: "0ms" }}
-        >
+        <div className="mb-16 flex flex-col items-center text-center" style={reveal(0)}>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             <span className="text-xs text-muted-foreground">Micro-SaaS &amp; AI Development</span>
@@ -113,7 +119,6 @@ export default function LandingPage() {
             whether models run locally on your infrastructure or scale in the cloud.
           </p>
 
-          {/* About */}
           <p className="max-w-md text-sm text-muted-foreground/70">
             Independent developer specialising in AI integration and micro-SaaS. I work with
             businesses to ship practical, production-ready software that moves fast and stays lean.
@@ -127,8 +132,8 @@ export default function LandingPage() {
             return (
               <div
                 key={c.label}
-                className="animate-reveal rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
-                style={{ animationDelay: `${150 + i * 80}ms` }}
+                className="rounded-xl border border-border bg-card p-5 transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
+                style={reveal(150 + i * 80)}
               >
                 <div className="mb-3 flex items-center gap-2">
                   <div className="flex h-7 w-7 items-center justify-center rounded-md bg-secondary">
@@ -143,7 +148,7 @@ export default function LandingPage() {
         </div>
 
         {/* Products */}
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-3xl" style={reveal(400)}>
           <div className="mb-4 flex items-center gap-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Products
@@ -158,8 +163,8 @@ export default function LandingPage() {
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="animate-reveal group rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
-                style={{ animationDelay: `${400 + i * 80}ms` }}
+                className="group rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
+                style={reveal(480 + i * 80)}
               >
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -181,10 +186,7 @@ export default function LandingPage() {
         </div>
 
         {/* Tech stack */}
-        <div
-          className="animate-reveal mt-14 flex flex-col items-center gap-4"
-          style={{ animationDelay: "700ms" }}
-        >
+        <div className="mt-14 flex flex-col items-center gap-4" style={reveal(700)}>
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Stack
           </span>

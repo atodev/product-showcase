@@ -115,13 +115,14 @@ export default function LandingPage() {
           </h1>
 
           <p className="mb-4 max-w-lg text-base text-muted-foreground">
-            Building focused SaaS products and AI solutions that solve real business problems —
-            whether models run locally on your infrastructure or scale in the cloud.
+            Building focused SaaS products and AI solutions that solve real business problems.
+            Models can run locally on your infrastructure or scale in the cloud.
           </p>
 
           <p className="max-w-md text-sm text-muted-foreground/70">
-            Independent developer specialising in AI integration and micro-SaaS. I work with
-            businesses to ship practical, production-ready software that moves fast and stays lean.
+            Independent developer specialising in AI integration and micro-SaaS.
+            <br />
+            I work with businesses to ship practical, production-ready software that moves fast and stays lean.
           </p>
         </div>
 

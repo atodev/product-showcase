@@ -1,19 +1,23 @@
-import { Zap, Code2, Cpu, Cloud, Server } from "lucide-react"
+import Link from "next/link"
+import { Zap, Code2, Cpu, Cloud, Server, ArrowUpRight } from "lucide-react"
 
 const products = [
   {
     dot: "bg-blue-400",
     label: "Interview Edge",
+    href: "https://interviewedge.atodev.xyz",
     description: "AI-powered interview preparation platform. Personalised coaching and real-time feedback to help candidates perform at their best.",
   },
   {
     dot: "bg-violet-400",
     label: "ONA Dashboard",
+    href: "https://onadashboard.atodev.xyz",
     description: "Organisational network analytics for business leaders. Surface collaboration patterns and team dynamics using AI-driven insights.",
   },
   {
     dot: "bg-emerald-400",
     label: "Bad Weather",
+    href: "https://badweather.atodev.xyz",
     description: "Intelligent weather risk management for operations teams. AI models that translate forecasts into actionable business decisions.",
   },
 ]
@@ -99,16 +103,22 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {products.map((p) => (
-              <div
+              <Link
                 key={p.label}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group rounded-xl border border-border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
               >
-                <div className="mb-3 flex items-center gap-2">
-                  <span className={`h-2 w-2 rounded-full ${p.dot}`} />
-                  <span className="text-sm font-semibold text-foreground">{p.label}</span>
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className={`h-2 w-2 rounded-full ${p.dot}`} />
+                    <span className="text-sm font-semibold text-foreground">{p.label}</span>
+                  </div>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
                 <p className="text-xs leading-relaxed text-muted-foreground">{p.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

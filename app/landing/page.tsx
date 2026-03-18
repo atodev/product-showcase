@@ -91,13 +91,6 @@ export default function LandingPage() {
             Work with me
             <ArrowUpRight className="h-3 w-3" />
           </Link>
-          <Link
-            href="https://showcase.atodev.xyz"
-            className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
-          >
-            Dashboard
-            <ArrowUpRight className="h-3 w-3" />
-          </Link>
         </div>
       </header>
 

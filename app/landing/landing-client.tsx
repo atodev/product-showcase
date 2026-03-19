@@ -81,15 +81,23 @@ export function LandingClient({ posts }: { posts: PostMeta[] }) {
           </div>
           <span className="text-lg font-bold tracking-tight text-foreground">Atodev</span>
         </div>
-        <Link
-          href="https://github.com/atodev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
-        >
-          Work with me
-          <ArrowUpRight className="h-3 w-3" />
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/blog"
+            className="text-xs font-medium text-foreground transition-colors hover:text-primary"
+          >
+            Blog
+          </Link>
+          <Link
+            href="https://github.com/atodev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Work with me
+            <ArrowUpRight className="h-3 w-3" />
+          </Link>
+        </div>
       </header>
 
       <main className="relative flex flex-1 flex-col items-center px-6 py-20">

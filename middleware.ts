@@ -16,6 +16,9 @@ export function middleware(req: NextRequest) {
     if (pathname === "/") {
       return NextResponse.rewrite(new URL("/landing", req.url))
     }
+    if (pathname.startsWith("/blog")) {
+      return NextResponse.next()
+    }
     return NextResponse.redirect(new URL("/", req.url))
   }
 

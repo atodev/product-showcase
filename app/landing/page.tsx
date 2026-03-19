@@ -83,6 +83,12 @@ export default function LandingPage() {
         </div>
         <div className="flex items-center gap-4">
           <Link
+            href="/blog"
+            className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Blog
+          </Link>
+          <Link
             href="https://github.com/atodev"
             target="_blank"
             rel="noopener noreferrer"

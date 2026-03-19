@@ -84,7 +84,7 @@ export default function LandingPage() {
         <div className="flex items-center gap-4">
           <Link
             href="/blog"
-            className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="rounded-lg border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
           >
             Blog
           </Link>

@@ -17,7 +17,7 @@ export interface Post extends PostMeta {
 }
 
 export function getAllPosts(): PostMeta[] {
-  const files = fs.readdirSync(postsDir).filter((f) => f.endsWith(".md"))
+  const files = fs.readdirSync(postsDir).filter((f) => f.endsWith(".md") && !f.startsWith("_"))
 
   return files
     .map((filename) => {

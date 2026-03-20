@@ -3,6 +3,9 @@ title: "Post Title"
 date: "2026-03-20"
 excerpt: "One punchy sentence that appears in the blog listing."
 tags: ["AI", "SaaS"]
+notebooklm: ""
+audio: ""
+audioTitle: ""
 ---
 
 Opening paragraph — hook the reader. One or two sentences on what this post is about and why it matters.

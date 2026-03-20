@@ -111,6 +111,22 @@ export default async function PostPage({ params }: Props) {
             </ReactMarkdown>
           </div>
 
+          {/* Audio player */}
+          {post.audio && (
+            <div className="mb-6 rounded-xl border border-border bg-card p-5">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Audio Overview
+              </p>
+              {post.audioTitle && (
+                <p className="mb-3 text-sm font-medium text-foreground">{post.audioTitle}</p>
+              )}
+              <audio controls className="w-full" style={{ accentColor: "#3b82f6" }}>
+                <source src={post.audio} type="audio/mp4" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          )}
+
           {/* NotebookLM card */}
           {post.notebooklm && (
             <a

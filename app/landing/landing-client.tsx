@@ -70,6 +70,30 @@ export function LandingClient({ posts }: { posts: PostMeta[] }) {
   return (
     <div className="relative flex min-h-screen flex-col bg-background font-sans">
 
+      {/* Background image */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/IMG_7126.jpeg"
+          alt=""
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.07,
+            mixBlendMode: "luminosity",
+          }}
+        />
+        {/* Fade edges */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "radial-gradient(ellipse at center, transparent 30%, #030303 80%)",
+        }} />
+      </div>
+
       {/* Dot grid background */}
       <div className="pointer-events-none absolute inset-0 bg-dot-grid mask-[radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
-import { Zap, ArrowLeft } from "lucide-react"
+import { Zap, ArrowLeft, BookOpen, ArrowUpRight } from "lucide-react"
 import { getAllPosts, getPost } from "@/lib/posts"
 import { GiscusComments } from "@/components/blog/giscus-comments"
 
@@ -110,6 +110,27 @@ export default async function PostPage({ params }: Props) {
               {post.content}
             </ReactMarkdown>
           </div>
+
+          {/* NotebookLM card */}
+          {post.notebooklm && (
+            <a
+              href={post.notebooklm}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mb-8 flex items-center justify-between gap-4 rounded-xl border border-border bg-card px-6 py-4 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary">
+                  <BookOpen className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Explore in NotebookLM</p>
+                  <p className="text-xs text-muted-foreground">Ask questions, explore sources, and listen to the AI audio overview</p>
+                </div>
+              </div>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+            </a>
+          )}
 
           {/* Divider */}
           <div className="mb-8 flex items-center gap-3">

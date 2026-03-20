@@ -3,6 +3,7 @@ title: "Robots with Wallets"
 date: "2026-03-21"
 excerpt: "When autonomous agents compete for shared resources, first-come-first-served breaks down fast. Here's a decentralised framework using XRP micro-auctions to solve it."
 tags: ["AI", "Blockchain", "Autonomous Agents"]
+notebooklm: "https://notebooklm.google.com/notebook/d1b2e26a-5c9b-412d-a43d-859b2424e029"
 ---
 
 ## The Problem: Gridlock at Scale

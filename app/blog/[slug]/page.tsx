@@ -89,12 +89,20 @@ export default async function PostPage({ params }: Props) {
             prose-hr:border-border">
             <ReactMarkdown
               components={{
-                img: ({ src, alt }) => (
-                  // eslint-disable-next-line @next/next/no-img-element
+                // eslint-disable-next-line @next/next/no-img-element
+                img: ({ src, alt, ...props }) => (
                   <img
-                    src={src}
+                    src={src ?? ""}
                     alt={alt ?? ""}
-                    className="rounded-xl border border-border w-full my-6"
+                    {...props}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "auto",
+                      borderRadius: "12px",
+                      margin: "24px 0",
+                      border: "1px solid #1f1f1f",
+                    }}
                   />
                 ),
               }}

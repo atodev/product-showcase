@@ -87,7 +87,20 @@ export default async function PostPage({ params }: Props) {
             prose-li:text-muted-foreground
             prose-strong:text-foreground
             prose-hr:border-border">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                img: ({ src, alt }) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={src}
+                    alt={alt ?? ""}
+                    className="rounded-xl border border-border w-full my-6"
+                  />
+                ),
+              }}
+            >
+              {post.content}
+            </ReactMarkdown>
           </div>
 
           {/* Divider */}

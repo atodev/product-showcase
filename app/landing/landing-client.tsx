@@ -82,8 +82,8 @@ export function LandingClient({ posts }: { posts: PostMeta[] }) {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            opacity: 0.2,
-            mixBlendMode: "luminosity",
+            opacity: 0.35,
+            mixBlendMode: "screen",
           }}
         />
         {/* Fade edges */}

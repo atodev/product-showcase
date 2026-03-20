@@ -16,7 +16,13 @@ export function middleware(req: NextRequest) {
     if (pathname === "/") {
       return NextResponse.rewrite(new URL("/landing", req.url))
     }
-    if (pathname.startsWith("/blog")) {
+    // Allow blog, static assets, and Next.js internals through
+    if (
+      pathname.startsWith("/blog") ||
+      pathname.startsWith("/images/") ||
+      pathname.startsWith("/icon") ||
+      pathname.startsWith("/favicon")
+    ) {
       return NextResponse.next()
     }
     return NextResponse.redirect(new URL("/", req.url))

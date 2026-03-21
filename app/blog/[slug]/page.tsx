@@ -114,15 +114,17 @@ export default async function PostPage({ params }: Props) {
           {/* Slides embed */}
           {post.slides && (
             <div className="mb-6 overflow-hidden rounded-xl border border-border bg-card">
-              <div className="border-b border-border px-5 py-3">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Slides</p>
-              </div>
               <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                 <iframe
                   src={post.slides}
                   allowFullScreen
                   className="absolute inset-0 h-full w-full"
                   style={{ border: "none" }}
+                />
+                {/* Mask Google Slides branding bar */}
+                <div
+                  className="absolute left-0 right-0 top-0 bg-card"
+                  style={{ height: "36px", zIndex: 10 }}
                 />
               </div>
             </div>

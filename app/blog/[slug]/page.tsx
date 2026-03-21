@@ -111,6 +111,23 @@ export default async function PostPage({ params }: Props) {
             </ReactMarkdown>
           </div>
 
+          {/* Slides embed */}
+          {post.slides && (
+            <div className="mb-6 overflow-hidden rounded-xl border border-border bg-card">
+              <div className="border-b border-border px-5 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Slides</p>
+              </div>
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  src={post.slides}
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                  style={{ border: "none" }}
+                />
+              </div>
+            </div>
+          )}
+
           {/* Audio player */}
           {post.audio && (
             <div className="mb-6 rounded-xl border border-border bg-card p-5">

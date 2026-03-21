@@ -6,6 +6,7 @@ tags: ["AI", "SaaS"]
 notebooklm: ""
 audio: ""
 audioTitle: ""
+slides: ""
 ---
 
 Opening paragraph — hook the reader. One or two sentences on what this post is about and why it matters.

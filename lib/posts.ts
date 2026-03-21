@@ -13,6 +13,7 @@ export interface PostMeta {
   notebooklm?: string
   audio?: string
   audioTitle?: string
+  slides?: string
 }
 
 export interface Post extends PostMeta {
@@ -36,6 +37,7 @@ export function getAllPosts(): PostMeta[] {
         notebooklm: data.notebooklm,
         audio: data.audio,
         audioTitle: data.audioTitle,
+        slides: data.slides,
       } as PostMeta
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -57,6 +59,7 @@ export function getPost(slug: string): Post | null {
     notebooklm: data.notebooklm,
     audio: data.audio,
     audioTitle: data.audioTitle,
+    slides: data.slides,
     content,
   }
 }

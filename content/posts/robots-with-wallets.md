@@ -5,6 +5,7 @@ excerpt: "When autonomous agents compete for shared resources, first-come-first-
 tags: ["AI", "Blockchain", "Autonomous Agents"]
 audio: "https://github.com/atodev/robots-with-wallets/releases/download/v1.0/How_micro-auctions_stop_robot_gridlock.m4a"
 audioTitle: "How micro-auctions stop robot gridlock"
+slides: "https://docs.google.com/presentation/d/e/2PACX-1vQPtNZ1wgu9TuY-1z3i5a0bwwSPYDe8tlm6WD2jLpEmETxPrMQBZbHhW0ybJRqJ4rgYnylKmnohsfnR/embed?start=false&loop=false&delayms=3000"
 ---
 
 ## The Problem: Gridlock at Scale

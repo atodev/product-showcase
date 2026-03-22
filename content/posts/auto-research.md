@@ -3,9 +3,9 @@ title: "Auto Research"
 date: "2026-03-23"
 excerpt: "Andrej Karpathy released AutoResearch in March 2026 — a minimal agent that runs ML experiments overnight with no human in the loop. Here's how I used it to close a 0.003 AUC gap on Kaggle."
 tags: ["AI", "Machine Learning"]
-notebooklm: ""
+notebooklm: "https://notebooklm.google.com/notebook/cb4fb27a-4f42-4367-998a-b7f834310b46?artifactId=2cfbb956-3eb2-43ef-a058-d2a59ba2a411"
 audio: ""
-audioTitle: ""
+audioTitle: "Using Auto Research to solve Machine Learning problems"
 slides: ""
 ---
 

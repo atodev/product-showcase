@@ -2,7 +2,9 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import type { ExtraProps } from "react-markdown"
 import { Zap, ArrowLeft, BookOpen, ArrowUpRight } from "lucide-react"
+import type { ComponentPropsWithoutRef } from "react"
 import { getAllPosts, getPost } from "@/lib/posts"
 import { GiscusComments } from "@/components/blog/giscus-comments"
 import { MermaidDiagram } from "@/components/blog/mermaid-diagram"
@@ -106,11 +108,19 @@ export default async function PostPage({ params }: Props) {
                     }}
                   />
                 ),
-                code: ({ className, children, ...props }) => {
-                  if (className === "language-mermaid") {
-                    return <MermaidDiagram chart={String(children)} />
+                pre: ({ children }: ComponentPropsWithoutRef<"pre"> & ExtraProps) => {
+                  const child = Array.isArray(children) ? children[0] : children
+                  if (
+                    child &&
+                    typeof child === "object" &&
+                    "props" in child &&
+                    typeof (child.props as { className?: string }).className === "string" &&
+                    (child.props as { className: string }).className.includes("language-mermaid")
+                  ) {
+                    const code = (child.props as { children?: unknown }).children
+                    return <MermaidDiagram chart={String(code).trim()} />
                   }
-                  return <code className={className} {...props}>{children}</code>
+                  return <pre>{children}</pre>
                 },
               }}
             >

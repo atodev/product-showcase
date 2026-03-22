@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import { Zap, ArrowLeft, BookOpen, ArrowUpRight } from "lucide-react"
 import { getAllPosts, getPost } from "@/lib/posts"
+import { splitMermaid } from "@/lib/split-mermaid"
 import { GiscusComments } from "@/components/blog/giscus-comments"
 import { MermaidDiagram } from "@/components/blog/mermaid-diagram"
 
@@ -24,27 +25,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.excerpt,
     icons: { icon: "/favicon.svg" },
   }
-}
-
-function splitMermaid(content: string) {
-  const parts: { type: "markdown" | "mermaid"; content: string }[] = []
-  const regex = /```mermaid\n([\s\S]*?)```/g
-  let lastIndex = 0
-  let match
-
-  while ((match = regex.exec(content)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push({ type: "markdown", content: content.slice(lastIndex, match.index) })
-    }
-    parts.push({ type: "mermaid", content: match[1].trim() })
-    lastIndex = match.index + match[0].length
-  }
-
-  if (lastIndex < content.length) {
-    parts.push({ type: "markdown", content: content.slice(lastIndex) })
-  }
-
-  return parts
 }
 
 export default async function PostPage({ params }: Props) {

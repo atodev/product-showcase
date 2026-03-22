@@ -2,9 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
-import type { ExtraProps } from "react-markdown"
 import { Zap, ArrowLeft, BookOpen, ArrowUpRight } from "lucide-react"
-import type { ComponentPropsWithoutRef } from "react"
 import { getAllPosts, getPost } from "@/lib/posts"
 import { GiscusComments } from "@/components/blog/giscus-comments"
 import { MermaidDiagram } from "@/components/blog/mermaid-diagram"
@@ -26,6 +24,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.excerpt,
     icons: { icon: "/favicon.svg" },
   }
+}
+
+function splitMermaid(content: string) {
+  const parts: { type: "markdown" | "mermaid"; content: string }[] = []
+  const regex = /```mermaid\n([\s\S]*?)```/g
+  let lastIndex = 0
+  let match
+
+  while ((match = regex.exec(content)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push({ type: "markdown", content: content.slice(lastIndex, match.index) })
+    }
+    parts.push({ type: "mermaid", content: match[1].trim() })
+    lastIndex = match.index + match[0].length
+  }
+
+  if (lastIndex < content.length) {
+    parts.push({ type: "markdown", content: content.slice(lastIndex) })
+  }
+
+  return parts
 }
 
 export default async function PostPage({ params }: Props) {
@@ -90,42 +109,35 @@ export default async function PostPage({ params }: Props) {
             prose-li:text-muted-foreground
             prose-strong:text-foreground
             prose-hr:border-border">
-            <ReactMarkdown
-              components={{
-                // eslint-disable-next-line @next/next/no-img-element
-                img: ({ src, alt, ...props }) => (
-                  <img
-                    src={src ?? ""}
-                    alt={alt ?? ""}
-                    {...props}
-                    style={{
-                      display: "block",
-                      width: "100%",
-                      height: "auto",
-                      borderRadius: "12px",
-                      margin: "24px 0",
-                      border: "1px solid #1f1f1f",
-                    }}
-                  />
-                ),
-                pre: ({ children }: ComponentPropsWithoutRef<"pre"> & ExtraProps) => {
-                  const child = Array.isArray(children) ? children[0] : children
-                  if (
-                    child &&
-                    typeof child === "object" &&
-                    "props" in child &&
-                    typeof (child.props as { className?: string }).className === "string" &&
-                    (child.props as { className: string }).className.includes("language-mermaid")
-                  ) {
-                    const code = (child.props as { children?: unknown }).children
-                    return <MermaidDiagram chart={String(code).trim()} />
-                  }
-                  return <pre>{children}</pre>
-                },
-              }}
-            >
-              {post.content}
-            </ReactMarkdown>
+            {splitMermaid(post.content).map((part, i) =>
+              part.type === "mermaid" ? (
+                <MermaidDiagram key={i} chart={part.content} />
+              ) : (
+                <ReactMarkdown
+                  key={i}
+                  components={{
+                    // eslint-disable-next-line @next/next/no-img-element
+                    img: ({ src, alt, ...props }) => (
+                      <img
+                        src={src ?? ""}
+                        alt={alt ?? ""}
+                        {...props}
+                        style={{
+                          display: "block",
+                          width: "100%",
+                          height: "auto",
+                          borderRadius: "12px",
+                          margin: "24px 0",
+                          border: "1px solid #1f1f1f",
+                        }}
+                      />
+                    ),
+                  }}
+                >
+                  {part.content}
+                </ReactMarkdown>
+              )
+            )}
           </div>
 
           {/* Slides embed */}

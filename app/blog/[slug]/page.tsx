@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown"
 import { Zap, ArrowLeft, BookOpen, ArrowUpRight } from "lucide-react"
 import { getAllPosts, getPost } from "@/lib/posts"
 import { GiscusComments } from "@/components/blog/giscus-comments"
+import { MermaidDiagram } from "@/components/blog/mermaid-diagram"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -105,6 +106,12 @@ export default async function PostPage({ params }: Props) {
                     }}
                   />
                 ),
+                code: ({ className, children, ...props }) => {
+                  if (className === "language-mermaid") {
+                    return <MermaidDiagram chart={String(children)} />
+                  }
+                  return <code className={className} {...props}>{children}</code>
+                },
               }}
             >
               {post.content}

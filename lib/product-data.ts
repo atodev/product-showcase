@@ -1,4 +1,4 @@
-export type Product = "interview-edge" | "ona-dashboard"
+export type Product = "interview-edge" | "ona-dashboard" | "strait-of-hormuz"
 
 export interface ProductData {
   id: Product
@@ -19,6 +19,10 @@ export interface ProductData {
     customersChange: string
     nrrChange: string
   }
+}
+
+export const PRODUCT_URLS: Partial<Record<Product, string>> = {
+  "strait-of-hormuz": "https://strait-of-hormuz.atodev.xyz",
 }
 
 export const PRODUCTS: Record<Product, ProductData> = {
@@ -86,6 +90,20 @@ export const PRODUCTS: Record<Product, ProductData> = {
       arrChange: "+13.2%",
       customersChange: "+6.4%",
       nrrChange: "+1.8%",
+    },
+  },
+  "strait-of-hormuz": {
+    id: "strait-of-hormuz",
+    name: "Strait of Hormuz",
+    tagline: "See what's actually happening in the Strait of Hormuz",
+    color: "cyan",
+    accentClass: "text-cyan-400",
+    bgClass: "bg-cyan-400/10",
+    gradientColor: "#22d3ee",
+    chartData: [],
+    metrics: {
+      mrr: "—", arr: "—", customers: "—", nrr: "—",
+      mrrChange: "—", arrChange: "—", customersChange: "—", nrrChange: "—",
     },
   },
 }

@@ -15,6 +15,7 @@ import {
   Zap,
   Network,
   Mic,
+  Waves,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
@@ -25,8 +26,9 @@ import {
 } from "@/components/ui/tooltip"
 
 const productSwitchItems = [
-  { icon: Network, label: "Network Hub", href: "/products" },
-  { icon: Mic, label: "Interview Edge", href: "/interview-edge" },
+  { icon: Network, label: "Network Hub",       href: "/products",                           external: false },
+  { icon: Mic,    label: "Interview Edge",     href: "/interview-edge",                     external: false },
+  { icon: Waves,  label: "Strait of Hormuz",   href: "https://strait-of-hormuz.atodev.xyz", external: true  },
 ]
 
 const navItems = [
@@ -70,12 +72,16 @@ export function SidebarNav() {
           )}
           {productSwitchItems.map((item) => {
             const Icon = item.icon
-            const isActive = pathname === item.href
+            const isActive = !item.external && pathname === item.href
+            const linkProps = item.external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {}
             return collapsed ? (
               <Tooltip key={item.label}>
                 <TooltipTrigger asChild>
                   <Link
                     href={item.href}
+                    {...linkProps}
                     className={cn(
                       "flex h-10 w-10 items-center justify-center rounded-lg transition-colors",
                       isActive
@@ -94,6 +100,7 @@ export function SidebarNav() {
               <Link
                 key={item.label}
                 href={item.href}
+                {...linkProps}
                 className={cn(
                   "flex h-10 w-full items-center gap-3 rounded-lg px-3 transition-colors",
                   isActive

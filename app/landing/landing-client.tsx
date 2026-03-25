@@ -183,6 +183,13 @@ export function LandingClient({ posts }: { posts: PostMeta[] }) {
           <div className="mb-4 flex items-center gap-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Products</span>
             <span className="h-px flex-1 bg-border" />
+            <Link
+              href="/all-products"
+              className="flex items-center gap-1 text-xs text-primary hover:underline"
+            >
+              All products
+              <ArrowRight className="h-3 w-3" />
+            </Link>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {products.slice(0, 3).map((p, i) => (

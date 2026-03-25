@@ -19,6 +19,7 @@ export function middleware(req: NextRequest) {
     // Allow blog, static assets, and Next.js internals through
     if (
       pathname.startsWith("/blog") ||
+      pathname.startsWith("/all-products") ||
       pathname.startsWith("/images/") ||
       pathname.startsWith("/icon") ||
       pathname.startsWith("/favicon")

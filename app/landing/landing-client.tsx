@@ -21,6 +21,13 @@ const products = [
       "Organisational network analytics for business leaders. Surface collaboration patterns and team dynamics using AI-driven insights.",
   },
   {
+    dot: "bg-cyan-400",
+    label: "Strait of Hormuz",
+    href: "https://strait-of-hormuz.atodev.xyz",
+    description:
+      "See what's actually happening in the Strait of Hormuz. Live vessel tracking and geopolitical intelligence in one view.",
+  },
+  {
     dot: "bg-emerald-400",
     label: "Bad Weather",
     href: "https://badweather.atodev.xyz",
@@ -176,9 +183,16 @@ export function LandingClient({ posts }: { posts: PostMeta[] }) {
           <div className="mb-4 flex items-center gap-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Products</span>
             <span className="h-px flex-1 bg-border" />
+            <Link
+              href="/products"
+              className="flex items-center gap-1 text-xs text-primary hover:underline"
+            >
+              All products
+              <ArrowRight className="h-3 w-3" />
+            </Link>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {products.map((p, i) => (
+            {products.slice(0, 3).map((p, i) => (
               <Link
                 key={p.label}
                 href={p.href}

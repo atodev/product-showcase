@@ -83,6 +83,7 @@ export function LandingClient({ posts }: { posts: PostMeta[] }) {
         <img
           src="/images/IMG_7126.jpeg"
           alt=""
+          fetchPriority="low"
           style={{
             position: "absolute",
             inset: 0,

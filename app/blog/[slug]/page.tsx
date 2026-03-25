@@ -101,6 +101,7 @@ export default async function PostPage({ params }: Props) {
                       <img
                         src={src ?? ""}
                         alt={alt ?? ""}
+                        loading="lazy"
                         {...props}
                         style={{
                           display: "block",

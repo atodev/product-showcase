@@ -224,14 +224,6 @@ This gives a quick read on which assets are currently working and which to watch
 
 ---
 
-*t-rade is a live experiment. Past sim performance does not guarantee live results. Trade responsibly.*
-
-
-## Second Section
-
-More content. Use **bold** for emphasis and `inline code` for technical terms.
-
-
 
 ## Takeaway
 

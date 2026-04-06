@@ -1,6 +1,6 @@
 ---
 title: "Quantum vs Classic"
-date: "2026-05-20"
+date: "2026-04-20"
 excerpt: "We Put a Quantum Computer Up Against Random Forest on a Kaggle Competition. It Lost Badly."
 tags: ["AI","Quantum","ML"]
 notebooklm: ""

@@ -14,6 +14,7 @@ export interface PostMeta {
   audio?: string
   audioTitle?: string
   slides?: string
+  updated?: string
 }
 
 export interface Post extends PostMeta {
@@ -38,6 +39,7 @@ export function getAllPosts(): PostMeta[] {
         audio: data.audio,
         audioTitle: data.audioTitle,
         slides: data.slides,
+        updated: data.updated,
       } as PostMeta
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -60,6 +62,7 @@ export function getPost(slug: string): Post | null {
     audio: data.audio,
     audioTitle: data.audioTitle,
     slides: data.slides,
+    updated: data.updated,
     content,
   }
 }

@@ -70,13 +70,24 @@ export default async function PostPage({ params }: Props) {
             <h1 className="mb-3 text-3xl font-bold tracking-tight text-foreground">
               {post.title}
             </h1>
-            <p className="text-xs text-muted-foreground">
-              {new Date(post.date).toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </p>
+            <div className="flex items-center gap-3">
+              <p className="text-xs text-muted-foreground">
+                {new Date(post.date).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </p>
+              {post.updated && (
+                <p className="text-xs text-muted-foreground">
+                  Updated {new Date(post.updated).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Post body */}

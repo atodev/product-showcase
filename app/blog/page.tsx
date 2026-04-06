@@ -74,6 +74,11 @@ export default function BlogPage() {
                       year: "numeric",
                     })}
                   </span>
+                  {post.updated && (
+                    <span className="rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
+                      Updated
+                    </span>
+                  )}
                   <ArrowRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
               </Link>

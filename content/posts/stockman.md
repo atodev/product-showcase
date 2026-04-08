@@ -8,7 +8,7 @@ audio: ""
 audioTitle: ""
 slides: ""
 ---
-![Stockman UI — NVDA live session with Auto mode, positions, and AI assistant](images/ui1.png)
+![Stockman UI — NVDA live session with Auto mode, positions, and AI assistant](/images/ui1.png)
 
 
 
@@ -43,7 +43,7 @@ Combined with other signals, it becomes a prior. A reason to look harder at a ti
 
 Each morning before the open, Stockman posts the AI's top 3 picks directly to Telegram — each with a one-line rationale drawn from the congressional trade data. The user replies with a ticker to confirm it, or overrides with their own choice.
 
-![AI morning briefing on Telegram — top 3 picks from Capitol Trades analysis](images/telegram1.png)
+![AI morning briefing on Telegram — top 3 picks from Capitol Trades analysis](/images/telegram1.png)
 
 ---
 
@@ -61,7 +61,7 @@ Where Polymarket and Capitol Trades data point at the same ticker, we weight tha
 
 The scan report also includes a signal-source bar chart — a simple visual of which data source contributed the most actionable signals in that scan window. When Polymarket dominates the chart, the crowd is speaking clearly.
 
-![Market Scan report — Polymarket crowd signals, AI picks, and source bar chart](images/telegram2.png)
+![Market Scan report — Polymarket crowd signals, AI picks, and source bar chart](/images/telegram2.png)
 
 ---
 

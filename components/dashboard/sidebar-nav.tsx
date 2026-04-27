@@ -15,7 +15,6 @@ import {
   Zap,
   Network,
   Mic,
-  Waves,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
@@ -26,9 +25,8 @@ import {
 } from "@/components/ui/tooltip"
 
 const productSwitchItems = [
-  { icon: Network, label: "Network Hub",       href: "/products",                           external: false },
-  { icon: Mic,    label: "Interview Edge",     href: "/interview-edge",                     external: false },
-  { icon: Waves,  label: "Strait of Hormuz",   href: "https://strait-of-hormuz.atodev.xyz", external: true  },
+  { icon: Network, label: "Network Hub",   href: "/products",       external: false },
+  { icon: Mic,    label: "Interview Edge", href: "/interview-edge", external: false },
 ]
 
 const navItems = [

@@ -10,13 +10,6 @@ export const metadata: Metadata = {
 
 const products = [
   {
-    dot: "bg-cyan-400",
-    label: "Strait of Hormuz",
-    href: "https://strait-of-hormuz.atodev.xyz",
-    description:
-      "See what's actually happening in the Strait of Hormuz. Live vessel tracking and geopolitical intelligence in one view.",
-  },
-  {
     dot: "bg-violet-400",
     label: "ONA Dashboard",
     href: "https://onadashboard.atodev.xyz",

@@ -8,7 +8,6 @@ import { COLOR_META, STATUS_META, type DynamicProduct } from "@/lib/product-cons
 const BUILTIN = [
   { id: "interview-edge",   name: "Interview Edge",   tagline: "AI-powered candidate intelligence",                     color: "blue" as const,   status: "active" as const, url: undefined },
   { id: "ona-dashboard",    name: "ONA Dashboard",    tagline: "Organisational network analytics",                      color: "violet" as const, status: "active" as const, url: undefined },
-  { id: "strait-of-hormuz", name: "Strait of Hormuz", tagline: "See what's actually happening in the Strait of Hormuz", color: "cyan" as const,   status: "active" as const, url: "https://strait-of-hormuz.atodev.xyz" },
 ]
 
 export function ProductsList() {

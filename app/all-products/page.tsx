@@ -10,6 +10,13 @@ export const metadata: Metadata = {
 
 const products = [
   {
+    dot: "bg-cyan-400",
+    label: "Satellite V3",
+    href: "https://satellitev3.atodev.xyz",
+    description:
+      "SpaceX satellite monitoring app with a live countdown to the V3 VLEO Direct to Cell launch. Track constellation status and coverage in real time.",
+  },
+  {
     dot: "bg-violet-400",
     label: "ONA Dashboard",
     href: "https://onadashboard.atodev.xyz",
@@ -29,13 +36,6 @@ const products = [
     href: "https://badweather.atodev.xyz",
     description:
       "Intelligent weather risk management for operations teams. AI models that translate forecasts into actionable business decisions.",
-  },
-  {
-    dot: "bg-cyan-400",
-    label: "Satellite V3",
-    href: "https://satellitev3.atodev.xyz",
-    description:
-      "SpaceX satellite monitoring app with a live countdown to the V3 VLEO Direct to Cell launch. Track constellation status and coverage in real time.",
   },
 ]
 

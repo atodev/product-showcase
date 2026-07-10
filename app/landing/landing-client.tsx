@@ -7,6 +7,13 @@ import type { PostMeta } from "@/lib/posts"
 
 const products = [
   {
+    dot: "bg-amber-400",
+    label: "HerdLink",
+    href: "https://herdlink.atodev.xyz",
+    description:
+      "HerdLink is a demonstration of a next-generation cattle collar concept: direct-to-cell satellite connectivity (Starlink NTN) instead of per-farm radio towers, paired with herd-relative behavioural analytics that flag unwell animals from collar telemetry alone.",
+  },
+  {
     dot: "bg-cyan-400",
     label: "Satellite V3",
     href: "https://satellitev3.atodev.xyz",

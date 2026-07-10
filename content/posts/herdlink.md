@@ -6,6 +6,8 @@ tags: ["AI", "SaaS"]
 notebooklm: ""
 audio: "https://github.com/atodev/herdlink/releases/download/v1.0/Satellite_social_networks_for_cows.m4a"
 audioTitle: ""
+video: "https://github.com/atodev/herdlink/releases/download/V1a/How_Social_Withdrawal_Predicts_Illness.mp4"
+videoTitle: "How Social Withdrawal Predicts Illness"
 slides: ""
 ---
 

@@ -90,6 +90,19 @@ export default async function PostPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Video player */}
+          {post.video && (
+            <div className="mb-6 rounded-xl border border-border bg-card p-5">
+              {post.videoTitle && (
+                <p className="mb-3 text-sm font-medium text-foreground">{post.videoTitle}</p>
+              )}
+              <video controls className="w-full rounded-lg">
+                <source src={post.video} type="video/mp4" />
+                Your browser does not support the video element.
+              </video>
+            </div>
+          )}
+
           {/* Post body */}
           <div className="prose prose-invert prose-sm max-w-none mb-16
             prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-foreground

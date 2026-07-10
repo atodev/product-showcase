@@ -13,6 +13,8 @@ export interface PostMeta {
   notebooklm?: string
   audio?: string
   audioTitle?: string
+  video?: string
+  videoTitle?: string
   slides?: string
   updated?: string
 }
@@ -38,6 +40,8 @@ export function getAllPosts(): PostMeta[] {
         notebooklm: data.notebooklm,
         audio: data.audio,
         audioTitle: data.audioTitle,
+        video: data.video,
+        videoTitle: data.videoTitle,
         slides: data.slides,
         updated: data.updated,
       } as PostMeta
@@ -61,6 +65,8 @@ export function getPost(slug: string): Post | null {
     notebooklm: data.notebooklm,
     audio: data.audio,
     audioTitle: data.audioTitle,
+    video: data.video,
+    videoTitle: data.videoTitle,
     slides: data.slides,
     updated: data.updated,
     content,

@@ -14,7 +14,7 @@ const products = [
     label: "Satellite V3",
     href: "https://satellitev3.atodev.xyz",
     description:
-      "SpaceX satellite monitoring app with a live countdown to the V3 VLEO Direct to Cell launch. Track constellation status and coverage in real time.",
+      "SpaceX satellite monitoring app tracking the first Starlink V3 satellites in orbit alongside the Direct to Cell constellation. Track constellation status and coverage in real time.",
   },
   {
     dot: "bg-violet-400",

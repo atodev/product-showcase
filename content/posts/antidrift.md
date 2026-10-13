@@ -9,6 +9,8 @@ audioTitle: "How Physics Stops AI Agent Drift"
 slides: ""
 ---
 
+![An agent's steps circling its original intent, then drifting past the energy budget and being halted](/images/antidrift-hero.png)
+
 An AI agent that runs for hundreds of steps, or a system that rewrites its own prompts and code, can end up pursuing something other than what it was asked to do. No single step has to be wrong. A sub-task becomes the task, a search result pulls it sideways, or one "improvement" quietly changes behaviour the original goal depended on.
 
 Most monitors check one step at a time: is this step similar enough to the task? That has no memory. It cannot tell a brief, sensible detour from the tenth step of a steady slide, and it cannot say which input caused the slide.

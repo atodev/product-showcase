@@ -4,8 +4,8 @@ date: "2026-10-13"
 excerpt: "Long-running agents drift from what they were asked to do. I borrowed the energy function from Hamiltonian mechanics to measure that drift, built it, tested it, and found that half the idea works."
 tags: ["AI", "Agents", "Research"]
 notebooklm: ""
-audio: ""
-audioTitle: ""
+audio: "https://github.com/atodev/antidrift/releases/download/v0.1.0/How_Physics_Stops_AI_Agent_Drift.m4a"
+audioTitle: "How Physics Stops AI Agent Drift"
 slides: ""
 ---
 

@@ -10,6 +10,20 @@ export const metadata: Metadata = {
 
 const products = [
   {
+    dot: "bg-rose-400",
+    label: "ChronoVoice",
+    href: "https://chronos.atodev.xyz",
+    description:
+      "A voice-first talking clock powered by the Gemini Live API. Chronos, an AI historian, tells you the time and a fascinating event from this day in history, then answers your questions in natural conversation. Invite-only: passcode required.",
+  },
+  {
+    dot: "bg-amber-400",
+    label: "HerdLink",
+    href: "https://herdlink.atodev.xyz",
+    description:
+      "HerdLink is a demonstration of a next-generation cattle collar concept: direct-to-cell satellite connectivity (Starlink NTN) instead of per-farm radio towers, paired with herd-relative behavioural analytics that flag unwell animals from collar telemetry alone.",
+  },
+  {
     dot: "bg-cyan-400",
     label: "Satellite V3",
     href: "https://satellitev3.atodev.xyz",

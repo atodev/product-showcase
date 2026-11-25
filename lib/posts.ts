@@ -17,6 +17,7 @@ export interface PostMeta {
   videoTitle?: string
   slides?: string
   updated?: string
+  locked?: boolean
 }
 
 export interface Post extends PostMeta {
@@ -44,6 +45,7 @@ export function getAllPosts(): PostMeta[] {
         videoTitle: data.videoTitle,
         slides: data.slides,
         updated: data.updated,
+        locked: data.locked === true,
       } as PostMeta
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -69,6 +71,7 @@ export function getPost(slug: string): Post | null {
     videoTitle: data.videoTitle,
     slides: data.slides,
     updated: data.updated,
+    locked: data.locked === true,
     content,
   }
 }

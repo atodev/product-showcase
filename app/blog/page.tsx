@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Zap, ArrowLeft, ArrowRight } from "lucide-react"
+import { Zap, ArrowLeft, ArrowRight, Lock } from "lucide-react"
 import { getAllPosts } from "@/lib/posts"
 
 export const metadata: Metadata = {
@@ -74,6 +74,12 @@ export default function BlogPage() {
                       year: "numeric",
                     })}
                   </span>
+                  {post.locked && (
+                    <span className="flex items-center gap-1 rounded-md bg-secondary px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+                      <Lock className="h-3 w-3" />
+                      Access code
+                    </span>
+                  )}
                   {post.updated && (
                     <span className="rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
                       Updated

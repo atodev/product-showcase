@@ -13,7 +13,8 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }))
+  // Locked posts are served by their own gated route, not this template.
+  return getAllPosts().filter((p) => !p.locked).map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
   const { slug } = await params
   const post = getPost(slug)
-  if (!post) notFound()
+  if (!post || post.locked) notFound()
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
